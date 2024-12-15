@@ -6,10 +6,16 @@ jobs:
     build-deploy:
       runs-on: ubuntu-latest
       steps:
+        - name: run change anv
+          shell: bash
+          run: |
+              echo "export SAM_CLI_TELEMETRY=0" >>~/.profile
+              source ~/.profile
+              
         - uses: actions/checkout@v2
         - uses: actions/setup-python@v2
-        - uses: aws-actions/setup-sam@v1
-        - uses: aws-actions/configure-aws-credentials@v1
+        - uses: aws-actions/setup-sam@v2
+        - uses: aws-actions/configure-aws-credentials@v2
           with:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
