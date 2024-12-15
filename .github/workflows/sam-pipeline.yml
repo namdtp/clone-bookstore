@@ -6,6 +6,11 @@ jobs:
     build-deploy:
       runs-on: ubuntu-latest
       steps:
+        - name: run change anv
+          shell: bash
+          run: |
+              echo "export SAM_CLI_TELEMETRY=0" >>~/.profile
+              source ~/.profile
         - uses: actions/checkout@v2
         - uses: actions/setup-python@v2
         - uses: aws-actions/setup-sam@v1
