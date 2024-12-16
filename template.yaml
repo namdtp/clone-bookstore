@@ -19,7 +19,7 @@ Resources:
       Architectures:
       - x86_64
       MemorySize: 128
-      Timeout: 20000
+      Timeout: 800
       Description: MongoDB connect
       # Policies:
       #   # Give Create/Read/Update/Delete Permissions to the SampleTable
