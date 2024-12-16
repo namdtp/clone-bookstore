@@ -3,7 +3,7 @@ name: Trigger Jenkins Job on Dev Branch
 on:
   push:
     branches:
-      - dev  # Kích hoạt khi có thay đổi ở nhánh dev
+      - dev-frontend  # Kích hoạt khi có thay đổi ở nhánh dev
 
 jobs:
   trigger-jenkins:
