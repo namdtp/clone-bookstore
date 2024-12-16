@@ -10,9 +10,8 @@
 - **Database:** NoSQL(MongoDB)
 
 
+```
     Cài đặt: npm install
-```
-```
     Run: npm start
 ```
 
