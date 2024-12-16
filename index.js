@@ -32,7 +32,7 @@ exports.handler = async (event, context) => {
   const db = await connectToDatabase();
 
   // Make a MongoDB MQL Query to go into the books collection and return the first 20 books.
-  const books = await db.collection("Books").find({}).limit(20).toArray();
+  const books = await db.collection("emails").find({}).limit(20).toArray();
 
   const response = {
     statusCode: 200,
