@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: >-
-  helloWorld
+  Aws serverless function 
 Transform:
 - AWS::Serverless-2016-10-31
 
@@ -21,14 +21,14 @@ Resources:
       MemorySize: 128
       Timeout: 20000
       Description: MongoDB connect
-      Policies:
-        # Give Create/Read/Update/Delete Permissions to the SampleTable
-      - DynamoDBCrudPolicy:
-          TableName: !Ref SampleTable
-      Environment:
-        Variables:
-          # Make table name accessible as environment variable from function code during execution
-          SAMPLE_TABLE: !Ref SampleTable
+      # Policies:
+      #   # Give Create/Read/Update/Delete Permissions to the SampleTable
+      # - DynamoDBCrudPolicy:
+      #     TableName: !Ref SampleTable
+      # Environment:
+      #   Variables:
+      #     # Make table name accessible as environment variable from function code during execution
+      #     SAMPLE_TABLE: !Ref SampleTable
       Events:
         Api:
           Type: Api
