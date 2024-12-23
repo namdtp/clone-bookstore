@@ -7,16 +7,16 @@ Transform:
 # Resources declares the AWS resources that you want to include in the stack
 # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
 Resources:
-  # ApiGatewayApi:
-  #     Type: AWS::Serverless::Api
-  #     Properties:
-  #       StageName: Prod
-  #       Cors:
-  #         AllowMethods: "'POST, GET'"
-  #         AllowHeaders: "'X-Forwarded-For'"
-  #         AllowOrigin: "'*'"
-  #         MaxAge: "'600'"
-  #         AllowCredentials: true
+  ApiGatewayApi:
+      Type: AWS::Serverless::Api
+      Properties:
+        StageName: Prod
+        Cors:
+          AllowMethods: "'POST, GET'"
+          AllowHeaders: "'X-Forwarded-For'"
+          AllowOrigin: "'*'"
+          MaxAge: "'600'"
+          AllowCredentials: true
   # Each Lambda function is defined by properties:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 
@@ -40,13 +40,13 @@ Resources:
       #     # Make table name accessible as environment variable from function code during execution
       #     SAMPLE_TABLE: !Ref SampleTable
       Events:
-        Api:
+        ApiEvent:
           Type: Api
           Properties:
             Path: /
-            Method: GET
-            # RestApiId:
-            #   Ref: ApiGatewayApi
+            Method: get
+            RestApiId:
+              Ref: ApiGatewayApi
   # Each Lambda function is defined by properties:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
   postONEItemsFunction:
@@ -68,13 +68,13 @@ Resources:
       #     # Make table name accessible as environment variable from function code during execution
       #     SAMPLE_TABLE: !Ref SampleTable
       Events:
-        Api:
+        ApiEvent:
           Type: Api
           Properties:
             Path: /post
             Method: POST
-            # RestApiId:
-            #   Ref: ApiGatewayApi
+            RestApiId:
+              Ref: ApiGatewayApi
   # This is a Lambda function config associated with the source code: get-by-id.js
 #   getByIdFunction:
 #     Type: AWS::Serverless::Function
