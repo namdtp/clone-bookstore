@@ -36,11 +36,11 @@ exports.handler = async (event, context) => {
 
   const response = {
     statusCode: 200, 
-    Headers: {
-      'Access-Control-Allow-Headers': '*',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, GET'
-      },
+    // Headers: {
+    //   'Access-Control-Allow-Headers': '*',
+    //   'Access-Control-Allow-Origin': '*',
+    //   'Access-Control-Allow-Methods': 'POST, GET'
+    //   },
     body: JSON.stringify(books),
   };
 
