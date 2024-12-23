@@ -44,7 +44,7 @@ Resources:
           Type: Api
           Properties:
             Path: /
-            Method: any
+            Method: get
             # RestApiId:
             #   Ref: ApiGatewayApi
   # Each Lambda function is defined by properties:
