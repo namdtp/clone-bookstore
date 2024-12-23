@@ -35,7 +35,12 @@ exports.handler = async (event, context) => {
   const books = await db.collection("emails").find({}).limit(20).toArray();
 
   const response = {
-    statusCode: 200,
+    statusCode: 200, 
+    Headers: {
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, GET'
+      },
     body: JSON.stringify(books),
   };
 
