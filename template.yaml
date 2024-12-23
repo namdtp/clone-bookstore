@@ -59,7 +59,7 @@ Resources:
         Api:
           Type: Api
           Properties:
-            Path: /
+            Path: /post
             Method: POST
   # This is a Lambda function config associated with the source code: get-by-id.js
 #   getByIdFunction:
